@@ -1,0 +1,74 @@
+---
+permalink: task-restore-virtual-machines-from-amazon-fsx.html 
+sidebar: sidebar 
+keywords: restore, virtual machines, amazon fsx 
+summary: Quando si ripristina una macchina virtuale, è possibile sovrascrivere il contenuto esistente con la copia di backup selezionata oppure eseguire una copia della macchina virtuale. 
+---
+= Ripristinare le macchine virtuali da Amazon FSX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando si ripristina una macchina virtuale, è possibile sovrascrivere il contenuto esistente con la copia di backup selezionata oppure eseguire una copia della macchina virtuale.
+
+.Prima di iniziare
+* Deve esistere un backup.
++
+È necessario aver creato un backup della macchina virtuale utilizzando il backup e ripristino BlueXP per le macchine virtuali prima di poter ripristinare la macchina virtuale.
+
++
+[NOTE]
+====
+Le operazioni di ripristino non possono essere completate correttamente se sono presenti copie Snapshot della macchina virtuale eseguite da software diversi dal backup e ripristino BlueXP per le macchine virtuali.
+
+====
+* La macchina virtuale non deve essere in transito.
++
+La macchina virtuale che si desidera ripristinare non deve trovarsi in uno stato vMotion o Storage vMotion.
+
+* Errori di configurazione HA.
++
+Assicurarsi che non siano visualizzati errori di configurazione ha nella schermata di riepilogo host di vCenter ESXi prima di ripristinare i backup in una posizione diversa.
+
+
+
+.A proposito di questa attività
+* La macchina virtuale non è registrata e viene nuovamente registrata.
++
+L'operazione di ripristino per le macchine virtuali annulla la registrazione della macchina virtuale originale, ripristina la macchina virtuale da una copia Snapshot di backup e registra la macchina virtuale ripristinata con lo stesso nome e configurazione sullo stesso server ESXi. Dopo il ripristino, è necessario aggiungere manualmente le macchine virtuali ai gruppi di risorse.
+
+* Ripristino datastore
++
+Non è possibile ripristinare un datastore, ma è possibile ripristinare qualsiasi macchina virtuale nel datastore.
+
+* Errori delle snapshot di coerenza VMware per una macchina virtuale.
++
+Anche in caso di errore di uno snapshot di coerenza VMware per una macchina virtuale, viene comunque eseguito il backup della macchina virtuale. È possibile visualizzare le entità contenute nella copia di backup nella procedura guidata di ripristino e utilizzarla per le operazioni di ripristino.
+
+
+
+.Fasi
+. Nella GUI del client Web VMware vSphere, fare clic su *Menu* nella barra degli strumenti, fare clic su *inventario*, quindi selezionare *macchine virtuali e modelli*.
+. Nel riquadro sinistro del Navigatore, fare clic con il pulsante destro del mouse su una *macchina virtuale*, selezionare *Backup cloud NetApp* nell'elenco a discesa, quindi selezionare *Ripristina* per avviare la procedura guidata.
+. Nella procedura guidata *Restore*, nella pagina *Select Backup*, selezionare la copia Snapshot di backup che si desidera ripristinare.
++
+È possibile cercare un nome di backup specifico o un nome di backup parziale oppure filtrare l'elenco di backup facendo clic sull'icona del filtro e selezionando una data e un intervallo di tempo, selezionando se si desidera che i backup contengano VMware Snapshots, se si desidera montare i backup e la posizione. Fare clic su *OK* per tornare alla procedura guidata.
+
+. Nella pagina *Select scope* (Seleziona ambito), selezionare *Entire Virtual Machine* (intera macchina virtuale) nel campo *Restore scope* (ambito ripristino), quindi selezionare la posizione di ripristino e immettere le informazioni ESXi di destinazione in cui deve essere montato il backup.
++
+Quando si ripristinano backup parziali, l'operazione di ripristino ignora la pagina *Select scope* (Seleziona ambito).
+
+. Selezionare la casella di controllo *Restart VM* (Riavvia macchina virtuale) se si desidera che la macchina virtuale venga accesa dopo l'operazione di ripristino.
+. Nella pagina *Select Location* (Seleziona posizione), selezionare la posizione dell'archivio dati ripristinato.
+. Esaminare la pagina *Riepilogo* e fare clic su *fine*.
+. *Opzionale*: Monitorare l'avanzamento dell'operazione facendo clic su *Recent Tasks* (attività recenti) nella parte inferiore della schermata.
+
+
+.Al termine
+* Aggiungere macchine virtuali ripristinate ai gruppi di risorse.
++
+Sebbene le macchine virtuali vengano ripristinate, non vengono aggiunte automaticamente ai gruppi di risorse precedenti. Pertanto, è necessario aggiungere manualmente le macchine virtuali ripristinate ai gruppi di risorse appropriati.
+
+

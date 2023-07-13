@@ -1,0 +1,49 @@
+---
+settings:
+  name: BlueXP backup and recovery for VMs
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: it-it,us-en,ja-jp,ko-kr,zh-cn,zh-tw,de-de,es-es,fr-fr
+sidebar:
+  entries:
+  - title: Documenti di backup e ripristino BlueXP per macchine virtuali
+    url: "/index.html"
+  - title: Note di rilascio
+    url: "/whats-new.html"
+  - title: Inizia subito
+    entries:
+    - title: Scopri di più sul backup e ripristino BlueXP per le macchine virtuali
+      url: "/concept-bluexp-backup-and-recovery-for-virtual-machines-on-amazon-fsx.html"
+    - title: Flussi di lavoro non supportati
+      url: "/concept-unsupported-workflows.html"
+  - title: Implementazione del backup e ripristino BlueXP per le macchine virtuali
+    entries:
+    - title: Requisiti e considerazioni
+      url: "/reference-requirements-and-considerations.html"
+    - title: Scarica OVA
+      url: "/task-download-the-open-virtual-appliance.html"
+    - title: Implementazione del backup e ripristino BlueXP per le macchine virtuali
+      url: "/task-deploy-bluexp-backup-and-recovery-for-vms.html"
+  - title: Backup del datastore NFS su Amazon FSX
+    entries:
+    - title: Aggiungere storage
+      url: "/task-add-storage.html"
+    - title: Creare policy di backup
+      url: "/task-create-backup-policies-for-vms-and-datastores.html"
+    - title: Creare gruppi di risorse
+      url: "/task-create-resource-groups.html"
+    - title: Backup dei gruppi di risorse on-demand
+      url: "/task-back-up-resource-groups-on-demand.html"
+  - title: Ripristinare le macchine virtuali da Amazon FSX
+    url: "/task-restore-virtual-machines-from-amazon-fsx.html"
+  - title: Conoscenza e supporto
+    entries:
+    - title: Registrati per ricevere assistenza
+      url: "/task-support-registration.html"
+    - title: Richiedi assistenza
+      url: "/task-get-help.html"
+  - title: Note legali
+    url: "/legal-notices.html"

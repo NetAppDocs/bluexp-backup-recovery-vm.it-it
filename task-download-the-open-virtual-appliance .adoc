@@ -1,0 +1,47 @@
+---
+permalink: task-download-the-open-virtual-appliance.html 
+sidebar: sidebar 
+keywords: download, open virtual appliance 
+summary: 'Prima di installare Open Virtual Appliance (OVA), aggiungere il certificato a vCenter. Il file .tar contiene i certificati OVA e Entrust Root e Intermediate; i certificati si trovano nella cartella dei certificati. L"implementazione di OVA è supportata in VMware vCenter 8.0 e versioni successive.' 
+---
+= Scarica Open Virtual Appliance (OVA)
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di installare Open Virtual Appliance (OVA), aggiungere il certificato a vCenter. Il `.tar` Il file contiene i certificati OVA e Entrust Root e Intermediate; i certificati si trovano nella cartella dei certificati. L'implementazione di OVA è supportata in VMware vCenter 8.0 e versioni successive.
+
+Se l'OVA firmato dal certificato Entrust non è attendibile, eseguire la procedura seguente per risolvere il problema.
+
+.Fasi
+. Per scaricare il backup e ripristino BlueXP per le macchine virtuali OVA:
++
+** Accedere a. https://mysupport.netapp.com/products/index.html["Sito di supporto NetApp"^]
+** Dall'elenco dei prodotti, selezionare *BlueXP backup and recovery for vms*, quindi fare clic sul pulsante *Download Latest Release* (Scarica ultima release).
+** Scarica il backup e ripristino BlueXP per le macchine virtuali `.tar` file in qualsiasi posizione.
+
+
+. Estrarre il contenuto del file tar. Il file tar contiene la cartella OVA e certs. La cartella certs contiene i certificati Entrust Root e Intermediate.
+. Accedere con le credenziali del client vSphere a VMC su AWS.
+. Accedere al menu:Amministrazione[certificati > Gestione certificati].
+. Accanto a *certificati root attendibili*, fare clic su *Aggiungi*.
++
+** Accedere alla cartella Cercs.
+** Selezionare i certificati Entrust Root e Intermediate.
+** Installare ciascun certificato uno alla volta.
+
+
+. I certificati vengono aggiunti a un pannello in certificati root attendibili.
++
+Una volta installati i certificati, è possibile verificare e implementare OVA.
+
+
+
+[NOTE]
+====
+Se l'OVA scaricato non viene manomesso, nella colonna Publisher viene visualizzato certificato attendibile.
+
+====

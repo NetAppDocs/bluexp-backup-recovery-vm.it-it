@@ -1,0 +1,36 @@
+---
+permalink: task-back-up-resource-groups-on-demand.html 
+sidebar: sidebar 
+keywords: back up, resource, groups, demand 
+summary: Le operazioni di backup vengono eseguite su tutte le risorse definite in un gruppo di risorse. Se un gruppo di risorse dispone di un criterio associato e di una pianificazione configurata, i backup vengono eseguiti automaticamente in base alla pianificazione. 
+---
+= Backup dei gruppi di risorse on-demand
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Le operazioni di backup vengono eseguite su tutte le risorse definite in un gruppo di risorse. Se un gruppo di risorse dispone di un criterio associato e di una pianificazione configurata, i backup vengono eseguiti automaticamente in base alla pianificazione.
+
+.Prima di iniziare
+* È necessario aver creato un gruppo di risorse con un criterio allegato.
++
+[NOTE]
+====
+Non avviare un processo di backup on-demand quando è già in esecuzione un processo di backup e ripristino di BlueXP per il database MySQL delle macchine virtuali. Utilizza la console di manutenzione per visualizzare la pianificazione di backup configurata per il database MySQL.
+
+====
++
+.Fasi
+.. Nel riquadro sinistro del Navigator della pagina del client Web vCenter, fare clic su menu:Backup e ripristino BlueXP per macchine virtuali[gruppi di risorse], quindi selezionare un gruppo di risorse e fare clic su *Esegui ora* per avviare il backup.
++
+image:vSphere client_resource group.png[""]
+
+.. Se il gruppo di risorse ha più criteri configurati, nella finestra di dialogo Backup Now (Esegui backup ora), selezionare il criterio da utilizzare per questa operazione di backup.
+.. Fare clic su *OK* per avviare il backup.
+.. Se l'operazione di quiesce non riesce per una delle macchine virtuali nel backup, il backup viene completato con un avviso e contrassegnato come non coerente con la macchina virtuale anche se la policy selezionata ha la coerenza con la macchina virtuale selezionata. In questo caso, è possibile che alcune macchine virtuali siano state correttamente rinunciate. Nel job monitor, i dettagli della macchina virtuale guasta mostrano la richiesta come non riuscita.
+
+
+

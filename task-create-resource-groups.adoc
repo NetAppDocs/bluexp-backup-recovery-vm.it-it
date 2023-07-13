@@ -1,0 +1,150 @@
+---
+permalink: task-create-resource-groups.html 
+sidebar: sidebar 
+keywords: create, resource, groups 
+summary: Un gruppo di risorse è il container per macchine virtuali e datastore che si desidera proteggere. 
+---
+= Creare gruppi di risorse
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Un gruppo di risorse è il container per macchine virtuali e datastore che si desidera proteggere.
+
+Per tutti i gruppi di risorse, non aggiungere macchine virtuali che si trovano in uno stato inaccessibile. Anche se è possibile creare un gruppo di risorse che contiene macchine virtuali inaccessibili, i backup per quel gruppo di risorse non avranno esito positivo.
+
+.A proposito di questa attività
+È possibile aggiungere o rimuovere risorse da un gruppo di risorse in qualsiasi momento.
+
+* Backup di una singola risorsa
++
+Per eseguire il backup di una singola risorsa (ad esempio, una singola macchina virtuale), è necessario creare un gruppo di risorse che contenga tale singola risorsa.
+
+* Backup di più risorse
++
+Per eseguire il backup di più risorse, è necessario creare un gruppo di risorse contenente più risorse.
+
+* Ottimizzazione delle copie Snapshot
++
+Per ottimizzare le copie Snapshot, è necessario raggruppare le macchine virtuali e i datastore associati allo stesso volume in un unico gruppo di risorse.
+
+* Policy di backup
++
+Sebbene sia possibile creare un gruppo di risorse senza una policy di backup, è possibile eseguire operazioni di protezione dei dati pianificate solo quando almeno una policy è associata al gruppo di risorse. È possibile utilizzare un criterio esistente oppure creare un nuovo criterio durante la creazione di un gruppo di risorse.
+
+* Controlli di compatibilità
++
+Il backup e ripristino BlueXP per le macchine virtuali esegue controlli di compatibilità quando si crea un gruppo di risorse. I motivi dell'incompatibilità potrebbero essere:
+
++
+** I VMDK si trovano su storage non supportato.
+** Un dispositivo PCI condiviso è collegato a una macchina virtuale.
+
+
+
+
+.Fasi
+. Nel riquadro sinistro di Navigator del backup e ripristino BlueXP per le macchine virtuali, fare clic su *gruppi di risorse*.
+. Nella pagina *gruppi di risorse*, fare clic su *Crea* per avviare la procedura guidata.
++
+image:Resource group.png[""]
+
++
+Questo è il modo più semplice per creare un gruppo di risorse. Tuttavia, è anche possibile creare un gruppo di risorse con una risorsa eseguendo una delle seguenti operazioni:
+
++
+** Per creare un gruppo di risorse per una macchina virtuale, fare clic su menu:Menu[host e cluster], quindi fare clic con il pulsante destro del mouse su una macchina virtuale, selezionare Backup e ripristino BlueXP per le macchine virtuali, quindi fare clic su *Crea*.
+** Per creare un gruppo di risorse per un datastore, fare clic su menu:Menu[host e cluster], quindi fare clic con il pulsante destro del mouse su un datastore, selezionare Backup e ripristino BlueXP per le macchine virtuali, quindi fare clic su *Crea*.
+
+
+. Nella pagina *General Info & Notification* della procedura guidata, immettere i valori richiesti.
+. Nella pagina *risorse*, effettuare le seguenti operazioni:
++
+[cols="50,50"]
+|===
+| Per questo campo… | Eseguire questa operazione… 
+
+
+ a| 
+Scopo
+ a| 
+Selezionare il tipo di risorsa che si desidera proteggere:
+
+** Datastore
+** Macchine virtuali
+
+
+
+
+ a| 
+Data center
+ a| 
+Accedere alle macchine virtuali o agli archivi dati
+
+
+
+ a| 
+Entità disponibili
+ a| 
+Selezionare le risorse che si desidera proteggere, quindi fare clic su > per spostare le selezioni nell'elenco delle entità selezionate
+
+|===
++
+Quando si fa clic su *Avanti*, il sistema verifica innanzitutto che il backup e ripristino di BlueXP per gestisca e sia compatibile con lo storage su cui si trovano le risorse selezionate.
+
++
+Se viene visualizzato il messaggio Selected <resource-name> is Not BlueXP backup and Recovery for VMS Compatible (la risorsa selezionata non è compatibile con il backup e ripristino BlueXP per le macchine virtuali).
+
+. Nella pagina *Spanning disks*, selezionare un'opzione per le macchine virtuali con più VMDK in più datastore:
++
+** Escludi sempre tutti gli archivi dati di spanning [questa è l'impostazione predefinita per gli archivi dati.]
+** Includi sempre tutti i datastore di spanning [questa è l'impostazione predefinita per le macchine virtuali.]
+** Selezionare manualmente gli archivi dati di spanning da includere.
+
+
+. Nella pagina *Policy*, selezionare o creare uno o più criteri di backup, come mostrato nella tabella seguente:
++
+[cols="50,50"]
+|===
+| Per utilizzare… | Eseguire questa operazione… 
+
+
+ a| 
+Una policy esistente
+ a| 
+Selezionare uno o più criteri dall'elenco.
+
+
+
+ a| 
+Una nuova policy
+ a| 
+.. Fare clic su *Create* (Crea).
+.. Completare la procedura guidata nuovo criterio di backup per tornare alla procedura guidata Crea gruppo di risorse.
+
+
+|===
+. Nella pagina *programmi*, configurare la pianificazione del backup per ogni policy selezionata.
++
+Nel campo Starting hour (ora di inizio), immettere una data e un'ora diverse da zero. La data deve essere nel formato giorno/mese/anno. È necessario compilare ciascun campo. Il backup e ripristino BlueXP per le macchine virtuali crea pianificazioni nel fuso orario in cui viene implementato il backup e ripristino BlueXP per le macchine virtuali. È possibile modificare il fuso orario utilizzando il backup e ripristino BlueXP per la GUI delle macchine virtuali.
+
++
+image:Schedules.png[""]
+
+. Esaminare il *riepilogo*, quindi fare clic su *fine*.
++
+Prima di fare clic su Finish (fine), è possibile tornare a qualsiasi pagina della procedura guidata e modificare le informazioni.
+
++
+Dopo aver fatto clic su fine, il nuovo gruppo di risorse viene aggiunto all'elenco dei gruppi di risorse.
+
++
+[NOTE]
+====
+Se l'operazione di quiesce non riesce per una delle macchine virtuali nel backup, il backup viene contrassegnato come non coerente con la macchina virtuale anche se la coerenza della macchina virtuale è selezionata nel criterio selezionato. In questo caso, è possibile che alcune macchine virtuali siano state correttamente rinunciate.
+
+====
+

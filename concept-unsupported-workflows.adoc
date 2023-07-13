@@ -1,0 +1,22 @@
+---
+permalink: concept-unsupported-workflows.html 
+sidebar: sidebar 
+keywords: unsupported, workflows 
+summary: Flussi di lavoro non supportati 
+---
+= Flussi di lavoro non supportati
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+I seguenti flussi di lavoro non sono supportati nel backup e ripristino BlueXP per le macchine virtuali versione 1.0:
+
+* Collegare e scollegare i VMDK
+* Montare e smontare gli archivi dati
+* Ripristinare file e cartelle guest
+* Ripristina in posizione alternativa
+* Aggiungere il sistema storage utilizzando il metodo di autenticazione "certificato"
+* Aggiungere volumi NetApp ONTAP FlexGroup
+

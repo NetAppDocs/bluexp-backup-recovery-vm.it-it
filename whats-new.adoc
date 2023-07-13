@@ -1,0 +1,28 @@
+---
+permalink: whats-new.html 
+sidebar: sidebar 
+keywords: 2-node switched Cisco 92300YC cluster switch migration 
+summary: Scopri le novità di BlueXP backup e recovery per macchine virtuali. 
+---
+= Novità del backup e ripristino BlueXP per le macchine virtuali
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Scopri le novità del backup e ripristino BlueXP per le macchine virtuali.
+
+
+
+== 13 luglio 2023
+
+
+
+=== Il backup e ripristino BlueXP per le macchine virtuali 1.0 è ora GA
+
+È possibile proteggere i dati sulle macchine virtuali utilizzando il backup e ripristino BlueXP per le macchine virtuali. Puoi eseguire il backup dei datastore su Amazon FSX e ripristinare le macchine virtuali nella posizione originale.
+
+Questa soluzione è specifica per macchine virtuali e datastore su VMware Cloud su AWS e Amazon FSX per NetApp ONTAP.
+
+link:concept-bluexp-backup-and-recovery-for-virtual-machines-on-amazon-fsx.html["Backup e ripristino BlueXP per macchine virtuali su Amazon FSX"]

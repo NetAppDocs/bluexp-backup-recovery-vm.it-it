@@ -1,0 +1,34 @@
+---
+permalink: reference-requirements-and-considerations.html 
+sidebar: sidebar 
+keywords: requirements, considerations 
+summary: Prima di utilizzare il backup e ripristino BlueXP per le macchine virtuali, è necessario conoscere diversi requisiti e considerazioni. 
+---
+= Requisiti e considerazioni
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prima di utilizzare il backup e ripristino BlueXP per le macchine virtuali, è necessario conoscere diversi requisiti e considerazioni:
+
+* Il backup e ripristino BlueXP per le macchine virtuali viene implementato come macchina virtuale Linux indipendentemente dal fatto che si utilizzi il plug-in per proteggere i dati su sistemi Windows o Linux.
+* È necessario implementare il backup e il ripristino BlueXP per le macchine virtuali su VMC su AWS.
++
+Il backup e ripristino BlueXP per le macchine virtuali e VMC deve utilizzare lo stesso fuso orario. Le pianificazioni di backup vengono eseguite nel fuso orario in cui viene implementato il backup e ripristino BlueXP per le macchine virtuali. VMC riporta i dati nel fuso orario in cui si trova il VMC. Pertanto, se il backup e ripristino di BlueXP per le macchine virtuali e VMC si trovano in fusi orari diversi, i dati nel backup e ripristino di BlueXP per il dashboard delle macchine virtuali potrebbero non coincidere con i dati nei report.
+
+* Non è necessario implementare il backup e il ripristino BlueXP per le macchine virtuali in una cartella con un nome con caratteri speciali.
++
+Il nome della cartella non deve contenere i seguenti caratteri speciali:@ n.%^&()_+{}';.,*?"<>|
+
+* È necessario implementare e registrare un'istanza univoca separata di backup e ripristino BlueXP per le macchine virtuali per ogni VMC su AWS.
++
+** Ogni VMC su AWS deve essere associato a un'istanza separata di BlueXP Backup and Recovery per le macchine virtuali.
+** Ogni istanza di backup e ripristino BlueXP per le macchine virtuali deve essere implementata come macchina virtuale Linux separata.
++
+Ad esempio, se si desidera eseguire backup da sei istanze diverse di VMC su AWS, è necessario implementare sei backup e ripristino BlueXP per le istanze delle macchine virtuali su sei host e ciascun VMC su AWS deve essere associato a un'istanza univoca di backup e ripristino BlueXP per le macchine virtuali.
+
+
+
+

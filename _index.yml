@@ -1,0 +1,31 @@
+---
+indexpage:
+  lead: BlueXP backup e recovery per macchine virtuali è un'appliance virtuale standalone
+    (formato di appliance virtuale aperta) che fornisce servizi di protezione dei
+    dati per macchine virtuali e datastore su VMware Cloud su AWS e Amazon FSX per
+    NetApp ONTAP.
+  tiles:
+  - title: Inizia subito
+    links:
+    - title: Scopri di più sul backup e ripristino BlueXP per le macchine virtuali
+      url: concept-bluexp-backup-and-recovery-for-virtual-machines-on-amazon-fsx.html
+    - title: Flussi di lavoro non supportati
+      url: concept-unsupported-workflows.html
+  - title: Implementazione del backup e ripristino BlueXP per le macchine virtuali
+    links:
+    - title: Scarica OVA
+      url: task-download-the-open-virtual-appliance.html
+    - title: Implementazione del backup e ripristino BlueXP per le macchine virtuali
+      url: task-deploy-bluexp-backup-and-recovery-for-vms.html
+  - title: Utilizzare il backup e ripristino BlueXP per le macchine virtuali
+    links:
+    - title: Aggiungere storage
+      url: task-add-storage.html
+    - title: Creare policy di backup
+      url: task-create-backup-policies-for-vms-and-datastores.html
+    - title: Creare gruppi di risorse
+      url: task-create-resource-groups.html
+    - title: Backup dei gruppi di risorse on-demand
+      url: task-back-up-resource-groups-on-demand.html
+    - title: Ripristinare le macchine virtuali da Amazon FSX
+      url: task-restore-virtual-machines-from-amazon-fsx.html

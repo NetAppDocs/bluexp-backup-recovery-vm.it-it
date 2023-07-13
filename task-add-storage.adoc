@@ -1,0 +1,43 @@
+---
+permalink: task-add-storage.html 
+sidebar: sidebar 
+keywords: add, storage 
+summary: 'Prima di eseguire il backup o il ripristino delle macchine virtuali, è necessario aggiungere "Amazon FSX per NetApp ONTAP" o "Amazon FSX per NetApp ONTAP SVM" come sistema storage. L"aggiunta di storage consente a BlueXP di eseguire backup e recovery per le macchine virtuali per riconoscere e gestire le operazioni di backup e ripristino in vCenter.' 
+---
+= Aggiungere storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Prima di eseguire il backup o il ripristino delle macchine virtuali, è necessario aggiungere "Amazon FSX per NetApp ONTAP" o "Amazon FSX per NetApp ONTAP SVM" come sistema storage. L'aggiunta di storage consente a BlueXP di eseguire backup e recovery per le macchine virtuali per riconoscere e gestire le operazioni di backup e ripristino in vCenter.
+
+.Prima di iniziare
+Il server ESXi, il backup e ripristino BlueXP per le macchine virtuali e ogni vCenter devono essere sincronizzati allo stesso tempo. Se si tenta di aggiungere spazio di archiviazione ma le impostazioni dell'ora per vCenter non sono sincronizzate, l'operazione potrebbe non riuscire e causare un errore nel certificato Java.
+
+.A proposito di questa attività
+Il backup e ripristino BlueXP per le macchine virtuali esegue operazioni di backup e ripristino su macchine virtuali di storage collegate direttamente e su macchine virtuali di storage in un cluster di storage.
+
+* I nomi delle VM storage devono essere risolti in LIF di gestione.
++
+Se sono state aggiunte voci host etc per i nomi delle macchine virtuali di storage nel backup e ripristino BlueXP per le macchine virtuali, è necessario verificare che siano risolvibili anche dall'appliance virtuale.
+
++
+Se si aggiunge una VM di storage con un nome che non è in grado di risolvere nella LIF di gestione, i processi di backup pianificati non vengono eseguiti perché il plug-in non è in grado di rilevare alcun datastore o volume nella VM di storage. In questo caso, aggiungere la VM di storage al backup e ripristino BlueXP per le macchine virtuali e specificare la LIF di gestione oppure aggiungere un cluster che contiene la VM di storage e specificare la LIF di gestione del cluster.
+
+* I dettagli relativi all'autenticazione dello storage non vengono condivisi tra più istanze di backup e ripristino BlueXP per le macchine virtuali o tra il server Windows SnapCenter e il backup e ripristino BlueXP per le macchine virtuali su vCenter.
+
+
+.Fasi
+. Nel riquadro sinistro di Navigator del client vSphere, fare clic su *Storage Systems*.
+. Nella pagina Storage Systems (sistemi storage), fare clic su *Add* (Aggiungi).
++
+image:vSphere client.png[""]
+
+. Nella procedura guidata *Add Storage System* (Aggiungi sistema di storage), immettere le informazioni di base relative alla VM di storage o al cluster.
+. Selezionare il metodo di autenticazione *Credentials* e accedere come amministratore Amazon FSX.
+. Fare clic su *Aggiungi*.
+
+
+Se è stato aggiunto un cluster di storage, tutte le VM di storage in tale cluster vengono aggiunte automaticamente. Le VM di storage aggiunte automaticamente (a volte chiamate VM di storage "implicite") vengono visualizzate nella pagina di riepilogo del cluster con un trattino (-) invece di un nome utente. I nomi utente vengono visualizzati solo per le entità di storage esplicite.
