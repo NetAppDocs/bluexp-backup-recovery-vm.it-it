@@ -29,3 +29,11 @@ indexpage:
       url: task-back-up-resource-groups-on-demand.html
     - title: Ripristinare le macchine virtuali da Amazon FSX
       url: task-restore-virtual-machines-from-amazon-fsx.html
+  - title: Demo e tutorial
+    links:
+    - title: Installa backup e recovery di BlueXP per le VM
+      url: https://www.youtube.com/watch?v=kCuKY0fBf5U
+    - title: Backup FSX per datastore e macchine virtuali ONTAP
+      url: https://www.youtube.com/watch?v=cLWOFm_3g3U
+    - title: Ripristino di FSX per i datastore VM e VMDK di ONTAP
+      url: https://www.youtube.com/watch?v=RVLYP0lguxkM
