@@ -11,7 +11,7 @@ summary: Per proteggere macchine virtuali, datastore e database coerenti con le 
 
 
 [role="lead"]
-Per proteggere macchine virtuali, datastore e database coerenti con le applicazioni su macchine virtualizzate, è necessario implementare il backup e ripristino BlueXP per le macchine virtuali.
+Per proteggere macchine virtuali e datastore su macchine virtuali è necessario implementare il backup e recovery di BlueXP per le macchine virtuali.
 
 .Prima di iniziare
 ++ ++
@@ -30,9 +30,8 @@ L'implementazione di OVA è supportata in VMware vCenter 8.0 e versioni successi
 * È necessario disporre di un certificato con file di chiavi pubbliche e private validi. Per ulteriori informazioni, consulta gli articoli della sezione Storage Certificate Management.
 * È necessario disconnettersi e chiudere tutte le sessioni del browser del client vSphere ed eliminare la cache del browser per evitare qualsiasi problema di cache del browser durante l'implementazione del backup e ripristino BlueXP per le macchine virtuali.
 * È necessario aver attivato TLS (Transport Layer Security) in vCenter. Consultare la documentazione VMware.
+* Devi aver implementato il backup e recovery di BlueXP per le VM nello stesso fuso orario di vCenter.
 
-
-Implementazione del backup e ripristino BlueXP per le macchine virtuali nello stesso fuso orario di vCenter.
 
 .Fasi
 . Per VMware vCenter 7.0.3 e versioni successive, seguire la procedura descritta nella sezione Download di Open Virtual Appliance (OVA) per importare i certificati in vCenter.

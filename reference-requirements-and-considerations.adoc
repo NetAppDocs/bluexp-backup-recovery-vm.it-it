@@ -31,4 +31,6 @@ Ad esempio, se si desidera eseguire backup da sei istanze diverse di VMC su AWS,
 
 
 
+* Sulla console vmc.vmware.com, aprire le porte del firewall per consentire all'IP pubblico del gateway di elaborazione di comunicare su TCP 443 con vCenter sulla rete di gestione.
+* Nella console AWS, devi aggiornare il gruppo di sicurezza del VPC in cui è in esecuzione FSX per ONTAP per consentire il backup e recovery di BlueXP per le VM di accedere a FSX per ONTAP.
 
