@@ -15,6 +15,22 @@ Scopri le novità del backup e ripristino BlueXP per le macchine virtuali.
 
 
 
+== 18 gennaio 2024
+
+
+
+=== Miglioramenti al backup e recovery di BlueXP per le VM
+
+Di seguito sono elencate le funzionalità supportate nel backup e ripristino BlueXP per le VM 1,1:
+
+* Montare e smontare gli archivi dati
+* Collegare e scollegare i VMDK
+* Ripristinare le macchine virtuali in una posizione alternativa
+* Attiva il blocco delle Snapshot per garantire che le copie Snapshot non vengano manomesse fino a un momento specificato.
+
+
+
+
 == 13 luglio 2023
 
 

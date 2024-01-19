@@ -13,6 +13,23 @@ summary: Quando si ripristina una macchina virtuale, è possibile sovrascrivere 
 [role="lead"]
 Quando si ripristina una macchina virtuale, è possibile sovrascrivere il contenuto esistente con la copia di backup selezionata oppure eseguire una copia della macchina virtuale.
 
+È possibile ripristinare le macchine virtuali nelle seguenti posizioni:
+
+* Ripristinare la posizione originale
++
+** Nel datastore originale montato sull'host ESXi originale (sovrascrive la macchina virtuale originale)
+
+
+* Ripristinare in una posizione alternativa
++
+** Su un datastore diverso montato sull'host ESXi originale
+** Al datastore originale montato su un host ESXi diverso gestito dallo stesso vCenter
+** A un datastore diverso montato su un host ESXi diverso gestito dallo stesso vCenter
+** A un datastore diverso montato su un host ESXi diverso gestito da un vCenter diverso in modalità collegata
+
+
+
+
 .Prima di iniziare
 * Deve esistere un backup.
 +
@@ -50,13 +67,16 @@ Anche in caso di errore di uno snapshot di coerenza VMware per una macchina virt
 
 
 .Fasi
-. Nella GUI del client Web VMware vSphere, fare clic su *Menu* nella barra degli strumenti, fare clic su *inventario*, quindi selezionare *macchine virtuali e modelli*.
-. Nel riquadro sinistro del Navigatore, fare clic con il pulsante destro del mouse su una *macchina virtuale*, selezionare *Backup cloud NetApp* nell'elenco a discesa, quindi selezionare *Ripristina* per avviare la procedura guidata.
+. Nella barra degli strumenti del client VMware vSphere, fare clic su *host e cluster*, quindi selezionare il sistema di archiviazione.
+. Nel riquadro di sinistra del Navigator, fare clic con il pulsante destro del mouse su una *macchina virtuale*, quindi selezionare *backup e ripristino BlueXP per le VM* nell'elenco a discesa, quindi selezionare *Ripristina* per avviare la procedura guidata.
 . Nella procedura guidata *Restore*, nella pagina *Select Backup*, selezionare la copia Snapshot di backup che si desidera ripristinare.
 +
 È possibile cercare un nome di backup specifico o un nome di backup parziale oppure filtrare l'elenco di backup facendo clic sull'icona del filtro e selezionando una data e un intervallo di tempo, selezionando se si desidera che i backup contengano VMware Snapshots, se si desidera montare i backup e la posizione. Fare clic su *OK* per tornare alla procedura guidata.
 
-. Nella pagina *Select scope* (Seleziona ambito), selezionare *Entire Virtual Machine* (intera macchina virtuale) nel campo *Restore scope* (ambito ripristino), quindi selezionare la posizione di ripristino e immettere le informazioni ESXi di destinazione in cui deve essere montato il backup.
+. Nella pagina *Seleziona ambito*, selezionare *intera macchina virtuale* nel campo *Ripristina ambito*, quindi selezionare la posizione di ripristino, quindi immettere le informazioni sulla destinazione in cui deve essere montato il backup.
++
+Nel campo Nome VM, se esiste lo stesso nome VM, il nuovo formato del nome VM è "<vm_name>_<timestamp>".
+
 +
 Quando si ripristinano backup parziali, l'operazione di ripristino ignora la pagina *Select scope* (Seleziona ambito).
 
@@ -69,6 +89,6 @@ Quando si ripristinano backup parziali, l'operazione di ripristino ignora la pag
 .Al termine
 * Aggiungere macchine virtuali ripristinate ai gruppi di risorse.
 +
-Sebbene le macchine virtuali vengano ripristinate, non vengono aggiunte automaticamente ai gruppi di risorse precedenti. Pertanto, è necessario aggiungere manualmente le macchine virtuali ripristinate ai gruppi di risorse appropriati.
+Assicurarsi che la macchina virtuale appena ripristinata sia protetta. In caso contrario, proteggerla aggiungendo manualmente la macchina virtuale ripristinata ai gruppi di risorse appropriati.
 
 

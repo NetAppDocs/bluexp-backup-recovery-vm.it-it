@@ -12,7 +12,11 @@ sidebar:
   - title: Documenti di backup e ripristino BlueXP per macchine virtuali
     url: "/index.html"
   - title: Note di rilascio
-    url: "/whats-new.html"
+    entries:
+    - title: Novità
+      url: "/whats-new.html"
+    - title: Limitazioni note
+      url: "/reference-limitations.html"
   - title: Inizia subito
     entries:
     - title: Scopri di più sul backup e ripristino BlueXP per le macchine virtuali
@@ -37,8 +41,22 @@ sidebar:
       url: "/task-create-resource-groups.html"
     - title: Backup dei gruppi di risorse on-demand
       url: "/task-back-up-resource-groups-on-demand.html"
+  - title: Montare e smontare gli archivi dati
+    entries:
+    - title: Montare i datastore
+      url: "/task-mount-datastores.html"
+    - title: Smontare i datastore
+      url: "/task-unmount-datastores.html"
+  - title: Collegare e scollegare i VMDK
+    entries:
+    - title: Collegare i VMDK a una macchina virtuale
+      url: "/task-attach-vmdks-vm.html"
+    - title: Scollegare un disco virtuale
+      url: "/task-detach-virtual-disks.html"
   - title: Ripristinare le macchine virtuali da Amazon FSX
     url: "/task-restore-virtual-machines-from-amazon-fsx.html"
+  - title: Accedere alle API REST
+    url: "/task-access-rest-apis.html"
   - title: Conoscenza e supporto
     entries:
     - title: Registrati per ricevere assistenza

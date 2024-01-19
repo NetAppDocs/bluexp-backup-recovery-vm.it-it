@@ -1,0 +1,66 @@
+---
+permalink: task-attach-vmdks-vm.html 
+sidebar: sidebar 
+keywords: mount, datastores 
+summary: Collegare uno o più VMDK alla macchina virtuale. 
+---
+= Collegare i VMDK a una macchina virtuale
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+È possibile collegare uno o più VMDK da un backup alla macchina virtuale padre o a una macchina virtuale alternativa sullo stesso host ESXi oppure a una macchina virtuale alternativa su un host ESXi alternativo gestito dallo stesso vCenter o da un vCenter diverso in modalità collegata.
+
+In questo modo è più semplice ripristinare uno o più singoli file da un disco invece di ripristinarne l'intero disco. È possibile scollegare il VMDK dopo aver ripristinato o effettuato l'accesso ai file necessari.
+
+.A proposito di questa attività
+Sono disponibili le seguenti opzioni di collegamento:
+
+* È possibile collegare dischi virtuali da un backup primario o secondario.
+* È possibile collegare i dischi virtuali alla macchina virtuale padre (la stessa macchina virtuale a cui era originariamente associato il disco virtuale) o a una macchina virtuale alternativa sullo stesso host ESXi.
+
+
+Le seguenti limitazioni si applicano al collegamento di dischi virtuali:
+
+* Le operazioni di collegamento e scollegamento non sono supportate per i modelli di macchina virtuale.
+* Quando più di 15 VMDK sono collegati a un controller iSCSI, la macchina virtuale per il backup e il recovery di BlueXP per le VM non può individuare un numero di unità VMDK superiore a 15 a causa delle restrizioni VMware.
++
+In questo caso, aggiungere i controller SCSI manualmente e provare a eseguire nuovamente l'operazione di collegamento.
+
+* Le operazioni di collegamento e ripristino collegano i VMDK utilizzando il controller SCSI predefinito. Viene eseguito il backup dei VMDK collegati a una macchina virtuale con un controller NVME, ma per le operazioni di collegamento e ripristino vengono riconnessi mediante un controller SCSI.
+
+
+.Fasi
+. Nel client VMware vSphere, accedere a. image:menu_icon.png[""] > *inventario* > *host e cluster*.
+. Nel riquadro del navigatore di sinistra, fare clic con il pulsante destro del mouse su *Virtual Machine*, quindi selezionare *Backup e ripristino BlueXP per VM* nell'elenco a discesa, quindi selezionare *Allega dischi virtuali*.
+. Nella finestra Allega disco virtuale, nella sezione *Backup*, selezionare un backup.
++
+È possibile filtrare l'elenco di backup selezionando l'icona del filtro e scegliendo una data e un intervallo di tempo, selezionando se si desidera eseguire i backup che contengono copie VMware Snapshot, se si desidera montare i backup e la posizione. Fare clic su OK.
+
+. Nella sezione *Select Disks* (Seleziona dischi), selezionare uno o più dischi da collegare e la posizione da cui si desidera collegare (primario o secondario).
++
+È possibile modificare il filtro per visualizzare le posizioni principale e secondaria.
+
+. Per impostazione predefinita, i dischi virtuali selezionati sono collegati alla macchina virtuale padre. Per collegare i dischi virtuali selezionati a una VM alternativa nello stesso host ESXi, *fare clic qui per collegare una VM alternativa* e specificare la VM alternativa.
+. Fare clic su *Allega*.
+. Facoltativo: Monitorare l'avanzamento dell'operazione nella sezione *attività recenti*.
++
+Aggiornare la schermata per visualizzare le informazioni aggiornate.
+
+. Verificare che il disco virtuale sia collegato effettuando le seguenti operazioni:
++
+.. Fare clic su *Menu* nella barra degli strumenti, quindi selezionare *VM e modelli* dall'elenco a discesa.
+.. Nel riquadro sinistro del Navigator, fare clic con il pulsante destro del mouse su una macchina virtuale, quindi selezionare *Edit settings* (Modifica impostazioni) nell'elenco a discesa.
+.. Nella finestra *Edit Settings* (Modifica impostazioni), espandere l'elenco di ciascun disco rigido per visualizzare l'elenco dei file su disco.
++
+La pagina Edit Settings (Modifica impostazioni) elenca i dischi sulla macchina virtuale. È possibile espandere i dettagli di ciascun disco rigido per visualizzare l'elenco dei dischi virtuali collegati.
+
+
+
+
+
+*Risultato*:
+È possibile accedere ai dischi collegati dal sistema operativo host e recuperare le informazioni necessarie dai dischi.

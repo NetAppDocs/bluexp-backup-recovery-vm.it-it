@@ -37,3 +37,5 @@ indexpage:
       url: https://www.youtube.com/watch?v=cLWOFm_3g3U
     - title: Ripristino di FSX per i datastore VM e VMDK di ONTAP
       url: https://www.youtube.com/watch?v=RVLYP0lguxkM
+    - title: Protezione dei carichi di lavoro di Oracle e MS® SQL
+      url: https://community.netapp.com/t5/Tech-ONTAP-Blogs/Protect-Oracle-MS-SQL-workloads-using-NetApp-SnapCenter-in-VMware-Cloud-on-AWS/ba-p/449168

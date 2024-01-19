@@ -1,0 +1,29 @@
+---
+permalink: task-unmount-datastores.html 
+sidebar: sidebar 
+keywords: mount, datastores 
+summary: 'Il disassemblaggio di un datastore rimuove l"accesso dell"host allo storage.' 
+---
+= Smontare i datastore
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+È possibile smontare un backup quando non è più necessario accedere ai file nel datastore.
+
+.Fasi
+. Nel client VMware vSphere, accedere a. image:menu_icon.png[""] > *inventario* > *archiviazione*.
+. Nel riquadro di navigazione sinistro, fare clic con il pulsante destro del mouse su un datastore, quindi selezionare *Backup e ripristino BlueXP per VM* nell'elenco a discesa, quindi selezionare *Unmount* nell'elenco a discesa secondario.
++
+
+NOTE: Assicurarsi di selezionare l'archivio dati corretto da smontare. In caso contrario, si potrebbe avere un impatto sul lavoro di produzione.
+
+. Nella finestra di dialogo *Unmount Backup*, selezionare un archivio dati, selezionare la casella di controllo *Unmount the datastore* e fare clic su *Unmount*.
+. Facoltativo: Per verificare che l'archivio dati sia stato smontato, nella barra degli strumenti del client VMware vSphere fare clic su *Backup e recovery di BlueXP per le VM*.
++
+L'archivio dati rimosso viene visualizzato nella sezione *attività processo recenti* della dashboard.
+
+
